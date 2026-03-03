@@ -3,7 +3,7 @@ version: "3.9"
 services:
   registry:
     image: registry:2
-    container_name: tp2-registry
+    container_name: katy-registry
     ports:
     - "5000:5000"
     restart: unless-stopped
@@ -28,7 +28,7 @@ services:
 
   registry-ui:
     image: joxit/docker-registry-ui:latest
-    container_name: tp2-registry-ui
+    container_name: katy-registry-ui
     restart: unless-stopped
     environment:
       - REGISTRY_TITLE=Registry-Privé
