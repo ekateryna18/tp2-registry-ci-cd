@@ -17,7 +17,7 @@ services:
       - admin_proxy         
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.registry.rule=Host(`master-pr-katy.a3n.fr`) && PathPrefix(`/v2`)"
+      - "traefik.http.routers.registry.rule=Host(`registry.master-pr-katy.a3n.fr`)"
       - "traefik.http.routers.registry.entrypoints=websecure"
       - "traefik.http.routers.registry.tls=true"
       - "traefik.http.routers.registry.tls.certresolver=letsencrypt"
@@ -25,7 +25,6 @@ services:
       - "traefik.http.routers.registry.middlewares=registry-ratelimit@docker"
       - "traefik.http.middlewares.registry-ratelimit.ratelimit.average=20"
       - "traefik.http.middlewares.registry-ratelimit.ratelimit.burst=50"
-      - "traefik.http.routers.registry.priority=10"
 
   registry-ui:
     image: joxit/docker-registry-ui:latest
@@ -35,22 +34,21 @@ services:
     restart: unless-stopped
     environment:
       - REGISTRY_TITLE=Registry-Privé
-      - REGISTRY_URL=https://master-pr-katy.a3n.fr
+      - REGISTRY_URL=https://registry.master-pr-katy.a3n.fr
       - DELETE_IMAGES=true
-      - NGINX_PROXY_PASS_URL=https://master-pr-katy.a3n.fr
+      - NGINX_PROXY_PASS_URL=https://registry.master-pr-katy.a3n.fr
       - SINGLE_REGISTRY=true
     networks:
-      - admin_proxy     
+      - admin_proxy
     depends_on:
       - registry
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.registry-ui.rule=Host(`master-pr-katy.a3n.fr`)"
+      - "traefik.http.routers.registry-ui.rule=Host(`registry-ui.master-pr-katy.a3n.fr`)"
       - "traefik.http.routers.registry-ui.entrypoints=websecure"
       - "traefik.http.routers.registry-ui.tls=true"
       - "traefik.http.routers.registry-ui.tls.certresolver=letsencrypt"
       - "traefik.http.services.registry-ui.loadbalancer.server.port=80"
-      - "traefik.http.routers.registry-ui.priority=1"
 
 networks:
   admin_proxy:
