@@ -9,3 +9,8 @@ data/
 # Docker
 *.log
 node_modules/
+
+# Local tools
+_byan/
+.claude/
+.github/agents/
