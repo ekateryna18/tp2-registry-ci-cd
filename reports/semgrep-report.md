@@ -5,10 +5,10 @@
 | | |
 |---|---|
 | **Status** | ✅ PASSED |
-| **Date** | 2026-03-10 13:09 UTC |
-| **Commit** | `a0539ae` |
+| **Date** | 2026-03-10 13:39 UTC |
+| **Commit** | `76f2c80` |
 | **Branch** | `main` |
-| **Pipeline** | [View run](https://github.com/ekateryna18/projet-master/actions/runs/22904002399) |
+| **Pipeline** | [View run](https://github.com/ekateryna18/projet-master/actions/runs/22905268601) |
 | **Semgrep version** | `1.153.1` |
 | **Engine** | OSS |
 
@@ -17,7 +17,7 @@
 | | |
 |---|---|
 | **Files scanned** | 17 |
-| **Scan time** | 0.2s |
+| **Scan time** | 0.21s |
 | **Total findings** | 0 |
 | **Errors** | 0 |
 | **Skipped rules** | 0 |
